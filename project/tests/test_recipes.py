@@ -3,10 +3,6 @@ import unittest
 from project import app
 
 class ProjectTests(unittest.TestCase):
-    ############################
-    #### setup and teardown ####
-    ############################
-
     # executed prior to each test
     def setUp(self):
         app.config['TESTING'] = True
@@ -19,16 +15,6 @@ class ProjectTests(unittest.TestCase):
     def tearDown(self):
         pass
 
-    ########################
-    #### helper methods ####
-    ########################
-
-
- 
-    ###############
-    #### tests ####
-    ###############
-
     def test_main_page(self):
         response = self.app.get('/', follow_redirects=True)
         self.assertIn(b'Welcome to the Kennedy Family Recipe App!', response.data)
@@ -38,6 +24,6 @@ class ProjectTests(unittest.TestCase):
         self.assertIn(b'Dinner Recipes', response.data)
         self.assertIn(b'Dessert Recipes', response.data)
 
-
+ 
 if __name__ == "__main__":
     unittest.main()
