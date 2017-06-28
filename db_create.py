@@ -16,8 +16,8 @@ db.session.add(recipe2)
 db.session.add(recipe3)
 
 # inser user data
-user1 = User('germanhernandez.dr@gmail.com', 'german')
-db.session.add(user1)
+# user1 = User('germanhernandez.dr@gmail.com', 'german')
+# db.session.add(user1)
 
 # commit the changes
 db.session.commit()
