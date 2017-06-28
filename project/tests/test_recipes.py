@@ -18,8 +18,7 @@ class RecipesTests(unittest.TestCase):
         app.config['TESTING'] = True
         app.config['WTF_CSRF_ENABLED'] = False
         app.config['DEBUG'] = False
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
-            os.path.join(app.config['BASE_DIR'], TEST_DB)
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.config['BASE_DIR'], TEST_DB)
         self.app = app.test_client()
         db.create_all()
 
@@ -34,15 +33,6 @@ class RecipesTests(unittest.TestCase):
     ###############
     #### tests ####
     ###############
-
-    def test_main_page(self):
-        response = self.app.get('/', follow_redirects=True)
-        self.assertIn(b'Kennedy Family Recipes', response.data)
-        self.assertIn(b'Breakfast Recipes', response.data)
-        self.assertIn(b'Lunch Recipes', response.data)
-        self.assertIn(b'Dinner Recipes', response.data)
-        self.assertIn(b'Dessert Recipes', response.data)
-        self.assertIn(b'Add Recipe', response.data)
 
     def test_main_page_query_results(self):
         response = self.app.get('/add', follow_redirects=True)
